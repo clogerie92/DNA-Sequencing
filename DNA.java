@@ -34,8 +34,18 @@ public class DNA {
         int stopCodonIndex = dna.indexOf("TGA");
         System.out.println("The index of stop codon is: " + stopCodonIndex);
         System.out.println();
-
-        
-
+        // print number of nucleotides between start and stop codons
+        int nucleotides = stopCodonIndex - startCodonIndex;
+        System.out.println("Number of nucleotides: " + nucleotides);
+        System.out.println();
+        // print whether or not DNA sequence has a protein
+        if(startCodonIndex != -1 && stopCodonIndex != -1 && (stopCodonIndex - startCodonIndex) % 3 == 0) {
+            System.out.println("This DNA sequence has a protein!");
+            System.out.println();
+            System.out.println("The protein is: " + dna.substring(startCodonIndex, stopCodonIndex + 3));
+            System.out.println();
+        } else {
+            System.out.println("This DNA sequence doesn't have a protein!");
+        }
     }
 }
